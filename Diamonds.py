@@ -236,6 +236,7 @@ total_cost = cost(predicted_y, y_test)
 
 print(f"Error of the test: {total_cost}")
 results = y_test
+results["predicted value"] = predicted_y
 results = results * max_y_value[0]
 
 print(results)
