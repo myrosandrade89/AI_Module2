@@ -102,7 +102,7 @@ diamonds.to_csv("clean_diamonds.csv")
 
 # MODEL
 
-print("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_MODEL (LINEAR REGRESSION)_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-")
+print("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_MODEL (MULTI LINEAR REGRESSION)_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-")
 
 # Redefining our DF to store the clean data
 print("Reading the cleaned csv")
