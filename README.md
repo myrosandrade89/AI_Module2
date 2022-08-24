@@ -12,12 +12,10 @@ Para verificar y analizar la estructura del dataset, utilicé la función `creat
 
 En este reporte se observó:
 
-// Imagen del Overview
-
+![image](https://user-images.githubusercontent.com/67491368/186533179-f0bc7fa0-6309-4468-9a7c-dc9b9601ddd2.png)
 - No se cuenta con ninguna celda vacía en el DataFrame, por lo que no fue necesario eliminar columnas por tener valores faltantes.
 
-// Imagen de correlación
-
+![image](https://user-images.githubusercontent.com/67491368/186533368-7600fa53-3400-4bc5-824a-93d23204d127.png)
 - Podemos observar que las variables x, y, z y quilates tienen una correlación mayor a 0.94 entre ellas, lo que nos permitió eliminar a 3 de estas. Se decidió mantener la variable de quilates pues es la que mayor correlación tiene con el precio (output).
 
 ## Transform
