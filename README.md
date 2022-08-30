@@ -12,12 +12,10 @@ Para verificar y analizar la estructura del dataset, utilicé la función `creat
 
 En este reporte se observó:
 
-// Imagen del Overview
-
+![image](https://user-images.githubusercontent.com/67491368/186533179-f0bc7fa0-6309-4468-9a7c-dc9b9601ddd2.png)
 - No se cuenta con ninguna celda vacía en el DataFrame, por lo que no fue necesario eliminar columnas por tener valores faltantes.
 
-// Imagen de correlación
-
+![image](https://user-images.githubusercontent.com/67491368/186533368-7600fa53-3400-4bc5-824a-93d23204d127.png)
 - Podemos observar que las variables x, y, z y quilates tienen una correlación mayor a 0.94 entre ellas, lo que nos permitió eliminar a 3 de estas. Se decidió mantener la variable de quilates pues es la que mayor correlación tiene con el precio (output).
 
 ## Transform
@@ -36,10 +34,10 @@ Se exportó el DataDrame resultante a un csv.
 
 Se dividió el DataFrame con la data limpia en las variables de entrada y la de salida. A su vez se dividieron estas para el entrenamiento (80%) y el training (20%).
 
-Se utilizó el algoritmo de Gradient Descent como algoritmo de optimización. Este consiste en encontrar el minimo local de una función diferenciable (diferencia del valor predecido menos el valor real dadas las betas => slope). En cada iteración (época) se busca reducir el error y así encontrar los pesos de las variables (betas 1 -n) y el bias (beta 0) más óptimo posible.
+Se utilizó el algoritmo de Gradient Descent como algoritmo de optimización. Este consiste en encontrar el minimo local de una función diferenciable (diferencia del valor predecido menos el valor real dadas las betas => slope). En cada iteración (época) se busca reducir el error y así encontrar los pesos de las variables (betas 1-n) y el bias (beta 0) más óptimo posible.
 
 El entrenamiento tenía un total de 1000 épocas y un learning rate de 0.05. Después de haber probado mi modelo en muchas ocasiones, a veces obtenía resultados muy buenos, y a veces muy malos. Por lo que decidí implementar el entrenamiento de 1000 épocas un total de 500 veces y tomar el mejor resultado (el de menor error).
 
 ## Conclusiones
 
-Debido a que se contaban con un total de 6 variables independientes, el resultado del entrenamiento no parecía siempre el más óptimo. Se podría aplicar un algoritmo genético para reducir el espacio de búsqueda (creación de valores aleatorios en cada iteración).
+Debido a que se contaban con un total de 6 variables independientes, el resultado del entrenamiento no parecía siempre el más óptimo. Se podría aplicar un algoritmo genético para reducir el espacio de búsqueda (número de valores aleatorios generados antes de optimizar el error).
