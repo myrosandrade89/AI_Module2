@@ -198,12 +198,14 @@ weights, bias = min_weights, min_bias
 
 # Defining the maximum error we accept and the max number of iterations
 error_max = 0.008
-max_it = 400
+max_it = 100
 i = 0
 
 # Calculating the values of the weights and the bias (with the training model), until the error is less than 0.8% or has reached the max iterations
 print("Training the model and returning the best weights and bias")
-while (curr_cost := cost(get_y_prediction(x_train, weights, bias), y_train)) > error_max and i < max_it:
+curr_cost = cost(get_y_prediction(x_train, weights, bias), y_train)
+
+while curr_cost > error_max and i < max_it:
     # Reasigning random values for the weights and the bias
     weights, bias = init_random_values()
     i+=1
@@ -215,6 +217,8 @@ while (curr_cost := cost(get_y_prediction(x_train, weights, bias), y_train)) > e
         min_bias = bias
         min_cost = curr_cost
     print(f'iter {i}/{max_it}. Minimum error until now: {min_cost}')
+    
+    curr_cost = cost(get_y_prediction(x_train, weights, bias), y_train)
 
 
 if min_cost > curr_cost:
@@ -240,3 +244,4 @@ results["predicted value"] = predicted_y
 results = results * max_y_value[0]
 
 print(results)
+results.to_csv("ayuda.csv")
