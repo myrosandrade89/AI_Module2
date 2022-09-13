@@ -30,7 +30,7 @@ types = {
 
 # Storing the DF in the variable diamonds
 print("Reading the original csv from kaggle")
-diamonds = pd.read_csv("diamonds.csv", dtype = types)
+diamonds = pd.read_csv("data/diamonds.csv", dtype = types)
 
 # Creation of the DF report
 print("Creating report")
@@ -95,7 +95,7 @@ print("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_LOAD_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-"
 
 # Creating a new csv with which we will work
 print("Exporting a new csv with which we will work")
-diamonds.to_csv("clean_diamonds.csv")
+diamonds.to_csv("data/clean_diamonds.csv")
 
 
 # -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -106,7 +106,7 @@ print("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_MODEL (MULTI LINEAR REGRESSION)_-_-_-_-
 
 # Redefining our DF to store the clean data
 print("Reading the cleaned csv")
-diamonds = pd.read_csv("clean_diamonds.csv")
+diamonds = pd.read_csv("data/clean_diamonds.csv")
 
 max_y_value = diamonds[["price"]].max()
 
@@ -133,8 +133,8 @@ y_train, y_test = y_sample[0:cut], y_sample[cut:].reset_index(drop = True)
 # Function that creates random values between -1 and 1 for the weights of the variables and the bias
 def init_random_values():
     # Each variable will have a weight
-    weights = pd.DataFrame(np.random.random(size = (1, 6))) * 2 - 1
-    bias = pd.DataFrame(np.random.random(size = (1, ))) * 2 - 1
+    weights = pd.DataFrame(np.random.random(size = (1, 6)))
+    bias = pd.DataFrame(np.random.random(size = (1, )))
     return weights, bias
 
 # Function that makes the prediction given the inputs (DF), the weights and the bias
@@ -198,7 +198,7 @@ weights, bias = min_weights, min_bias
 
 # Defining the maximum error we accept and the max number of iterations
 error_max = 0.008
-max_it = 100
+max_it = 30
 i = 0
 
 # Calculating the values of the weights and the bias (with the training model), until the error is less than 0.8% or has reached the max iterations
@@ -232,7 +232,7 @@ if min_cost > curr_cost:
 print("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_RESULTS_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-")
 
 # Weights and values after training
-print(f'\nBest weights: {min_weights}, best bias: {min_bias}')
+print(f'\nBest weights: {min_weights} \nbest bias: {min_bias}')
 print(f'Minimun error after training: {min_cost}')
       
 predicted_y = get_y_prediction(x_test, weights, bias)
@@ -244,4 +244,4 @@ results["predicted value"] = predicted_y
 results = results * max_y_value[0]
 
 print(results)
-results.to_csv("ayuda.csv")
+results.to_csv("data/results_test.csv")
