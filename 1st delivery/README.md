@@ -11,6 +11,8 @@ _Autor: Myroslava Sánchez Andrade_
 El propósito de este repositorio es realizar la programación de un algoritmo de predicción sin el uso de frameworks.
 <br>Las librerías necesarias para correr el código son: pandas, numpy, matplotlib y dataprep.
 
+Video de Google Colab: https://youtu.be/x_i4Z11iG4Y
+
 ---
 
 ## **Extract**
