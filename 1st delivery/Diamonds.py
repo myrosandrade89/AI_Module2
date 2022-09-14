@@ -1,6 +1,16 @@
-# Myroslava Sánchez Andrade A01730712
+# Author: Myroslava Sánchez Andrade A01730712
+# Creation date: 31/08/2022
+# Last updated: 13/09/2022
 
 # -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+# REQUIRED LIBRARIES
+
+# !pip install pandas
+# !pip install numpy
+# !pip install matplotlib
+# !pip install dataprep
+
 
 # EXTRACT
 
@@ -130,7 +140,7 @@ print("Dividing the data for the training (80%) and the test (20%)")
 x_train, x_test = x_sample[0:cut], x_sample[cut:].reset_index(drop = True)
 y_train, y_test = y_sample[0:cut], y_sample[cut:].reset_index(drop = True)
 
-# Function that creates random values between -1 and 1 for the weights of the variables and the bias
+# Function that creates random values between 0 and 1 for the weights of the variables and the bias
 def init_random_values():
     # Each variable will have a weight
     weights = pd.DataFrame(np.random.random(size = (1, 6)))
@@ -245,3 +255,13 @@ results = results * max_y_value[0]
 
 print(results)
 results.to_csv("data/results_test.csv")
+
+# Plotting the results (true values - predicted values)
+plt.clf()
+plt.axes(aspect='equal')
+plt.scatter(results["actual_value"], results["predicted value"])
+plt.xlabel('True Values [price]')
+plt.ylabel('Predictions [price]')
+plt.xlim([0, 20000])
+plt.ylim([0, 20000])
+plt.show()
