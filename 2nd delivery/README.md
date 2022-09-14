@@ -1,4 +1,4 @@
-# **Título**
+# **Uso de framework de aprendizaje máquina**
 
 _Author: Myroslava Sánchez Andrade_
 <br>_Fecha de creación: 09/09/2022_
@@ -61,13 +61,15 @@ Para ambos modelos se utilizó la optimización de Adam, este es un método de d
 
 Para la aplicación de esta regresión lineal (y = mx + b), se produce una salida (output) al usar una sola capa y una neurona. Se utilizó un learning rate de 0.1 y un total de 5 épocas. Esto dio como resultado un error final (en la unidad de dólares) de 53585.85
 
-foto1
+![image](https://user-images.githubusercontent.com/67491368/190276230-d2cf937c-6f2d-4498-bb2a-a629bfe3f032.png)
+
 
 #### **_- Simple neural network:_**
 
 Para este red neuronal simple, sólo se hizo uso de dos capas intermedias con 64 neuronas cada una; se usó la función de activación Relu, learning rate de 0.1 y 5 épocas. Esto dio como resultado un error final (en la unidad de dólares) de 20682.196.
 
-foto 2
+![image](https://user-images.githubusercontent.com/67491368/190276241-15e24b48-a293-4ee1-b68b-f996764704d4.png)
+
 
 ---
 
@@ -98,4 +100,5 @@ Comparando todos los modelos, podemos concluir que el modelo que mejor se ajusta
 
 El modelo de una red neuronal compleja con capas dropout, fue el que mejor resultado dio. Un error de 12, 418 de dólares; un grado de bias de 246 y un grado de bias de 318. A pesar de que estos valores en sí mismo representan un underfitting, podemos observar en la gráfica que se tiene un buen modelo. Probablemente este podría ser mejorado incrementando el número de épocas y disminuyendo el learning rate (esto no fue posible aplicar en el modelo debido a la poca RAM de mi computadora portátil).
 
-foto 2
+![image](https://user-images.githubusercontent.com/67491368/190276253-887bafcc-06db-40bc-8578-140a3f913417.png)
+
