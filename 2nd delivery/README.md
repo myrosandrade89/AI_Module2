@@ -1,0 +1,28 @@
+# **Título**
+
+_Author: Myroslava Sánchez Andrade_
+<br>_Fecha de creación: 09/09/2022_
+<br>_Última modificación: 14/09/2022_
+
+---
+
+## **Visión general**
+
+El propósito de este repositorio es realizar la programación de un algoritmo de predicción.
+<br>Las librerías necesarias para correr el código son: pandas, numpy, matplotlib, dataprep, sklearn y tensorflow.
+
+Video de Google Colab:
+
+---
+
+## **Extract**
+
+De la plataforma Kaggle se descargó un **[datset](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction?select=kc_house_data.csv)** que contiene las casas vendidas entre Mayo del 2014 y Mayo del 2015 en King County. Está compuesto por las siguientes variables:
+
+- **_Variables independientes:_** id (unic identifier for the house), date (date in which a house was put up for sale), bedrooms, bathroomns, sqft_living (living area inside the house), sqft_lot (total area of the property), floors, waterfront (sea view[boolean]), view (score), condition (score), grade (overall score), sqft_above (attic), sqft_basement, yr_built (year in which the house was built), year_renovated (last year of renovation), zipcode, lat (latitude), long (longitude), sqft_living15, sqft_lot15. Siendo categóricas las variables: `['view', 'condition', 'grade']`
+
+- **_Variable dependiente:_** price (price at which a house was sold).
+
+Para el anális de la estructura del dataset se utilizó la función **[create_report()](https://docs.dataprep.ai/user_guide/eda/create_report.html)** de la librería dataprep.eda que crea un reporte estadísitco descriptivo.
+
+En este reporte se observó:
