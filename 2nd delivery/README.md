@@ -25,4 +25,14 @@ De la plataforma Kaggle se descargó un **[datset](https://www.kaggle.com/datase
 
 Para el anális de la estructura del dataset se utilizó la función **[create_report()](https://docs.dataprep.ai/user_guide/eda/create_report.html)** de la librería dataprep.eda que crea un reporte estadísitco descriptivo.
 
-En este reporte se observó:
+Después del análisis de los datos y su estructura se pudo identificar: variables que no aportaban a la secuencia de datos, se necesitban realizar normalización algunas variables y se necesitaba la reestructuración de una variable.
+
+---
+
+## **Transform**
+
+Habiendo hecho un análisis de los datos, se realizaron las siguientes transformaciones:
+
+- Transformación de la variable `['date']`: se hizo la separación del mes y del año de la fecha, no se tomó en cuenta el día, pues los datos sólo cotienen datos de un año.
+
+- Selección de columnas: eliminado las columnas `['lat', 'long', 'zipcode']` porque no contribuyen al enriquecimiento del conjunto de datos ya que son variables de ubicación; para la relación de precio dada una ubicación, podemos usar las variables `sqft_living15` y `sqft_lot15` que dan información de las casas alrededor de una casa específica. La variable `id` también se eliminó ya que podemos usar el índice del DataFrame.
