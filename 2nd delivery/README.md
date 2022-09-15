@@ -59,14 +59,14 @@ Para ambos modelos se utilizó la optimización de Adam, este es un método de d
 
 #### **_- Linear regression:_**
 
-Para la aplicación de esta regresión lineal (y = mx + b), se produce una salida (output) al usar una sola capa y una neurona. Se utilizó un learning rate de 0.1 y un total de 5 épocas. Esto dio como resultado un error final (en la unidad de dólares) de 533585.8125, un bias promedio de 42.25e10 y una varianza promedio de 2436.365.
+Para la aplicación de esta regresión lineal (y = mx + b), se produce una salida (output) al usar una sola capa y una neurona. Se utilizó un learning rate de 0.1 y un total de 5 épocas. Esto dio como resultado un error final (en la unidad de dólares) de 533585.8125, un bias promedio de 4.225e11 y una varianza promedio de 2436.365.
 
 ![image](https://user-images.githubusercontent.com/67491368/190276230-d2cf937c-6f2d-4498-bb2a-a629bfe3f032.png)
 
 
 #### **_- Simple neural network:_**
 
-Para este red neuronal simple, sólo se hizo uso de dos capas intermedias con 64 neuronas cada una; se usó la función de activación Relu, learning rate de 0.1 y 5 épocas. Esto dio como resultado un error final (en la unidad de dólares) de 120848.7188, un bias promedio de 39.52e9 y una varianza promedio de 74.53e7
+Para este red neuronal simple, sólo se hizo uso de dos capas intermedias con 64 neuronas cada una; se usó la función de activación Relu, learning rate de 0.1 y 5 épocas. Esto dio como resultado un error final (en la unidad de dólares) de 120848.7188, un bias promedio de 3.952e10 y una varianza promedio de 7.453e8
 
 ![image](https://user-images.githubusercontent.com/67491368/190276241-15e24b48-a293-4ee1-b68b-f996764704d4.png)
 
@@ -75,7 +75,13 @@ Para este red neuronal simple, sólo se hizo uso de dos capas intermedias con 64
 
 ## **Análisis de rendimiento**
 
-Después de analizar el error, el sesgo y la varianza, se puede concluir que una red neuronal predice mejor la relación entre la variable independiente y las variables dependientes; y esto tiene sentido, ya que esperamos que el rendimiento de una red neuronal sea mejor que un modelo de regresión simple.
+Dados los resultados anteriores, se puede concluir (dado el decremento en el sesgo) que una red neuronal simple predice mejor la relación entre la variable independiente y las variables dependientes; y esto tiene sentido, ya que esperamos que el rendimiento de una red neuronal sea mejor que un modelo de regresión simple. A pesar de ello, la varianza aumentó, debido a la naturaleza menos agrupada de la red. Sin embargo, aun con la varianza aumentada, este es el mejor modelo por mucho una vez que revisamos el cambio en el error, por lo que fue el seleccionado para aplicar ajuste de parámetros.
+
+- _Red neuronal simple (**fit**):_ 2 capas intermedias con 64 neuronas cada una.
+    - Error: 120848.7188 dólares (**bajo**)
+    - Sesgo: 3.952e10 (**bajo**)
+    - Varianza: 7.453e8 (**bajo**)
+    - A pesar de que los valores de error, sesgo y varianza pueden parecer altos, considerando el rango de valores de precios del dataset se ajustan relativamente bien al modelo. La predicción es buena sin llegar a un overfit, por lo tanto es un buen fit. A pesar de ello, intentaremos mejorar el rendimiento del modelo en la siguiente sección.
 
 ---
 
@@ -84,21 +90,33 @@ Después de analizar el error, el sesgo y la varianza, se puede concluir que una
 Teniendo la red neuronal como modelo para la predicción, ahora podemos aplicar técnicas de regularización o ajuste de parámetros para mejorar el rendimiento de la red neuronal.
 <br>Se realizaron 3 cambios en los hiperparámetros:
 
-- _Red neuronal compleja (aumentando el número de capas):_ 4 capas intermedias con 40 neuronas cada una.
+- _Red neuronal compleja (aumentando el número de capas) (**underfit**):_ 4 capas intermedias con 40 neuronas cada una.
+    - Error: 144444.0625 dólares (**medio**)
+    - Sesgo: 3.586e10 (**bajo**)
+    - Varianza: 2.758e9 (**alto**)
+    - A pesar de que el sesgo es menor, la varianza y el error son mucho mayores que la red neuronal simple, lo cual implica un underfit en comparación con la misma.
 - _Red neuronal simple con capa de abandono (para reducir el sobreajuste):_ 2 capas intermedias con una capa de droput de 0.1
-- _Red neuronal compleja con capas droput:_ 4 capas intermedias con 40 neuronas cada una y una capa de dropout de 0.1 y dos capas de dropout de 0.2
+    - Error: 121687.3594 dólares (**bajo**)
+    - Sesgo: 4.187e10 (**medio**)
+    - Varianza: 7.790e8 (**medio**)
+    - A pesar de que la varianza y el error son comparables, el sesgo es mayor que la red neuronal simple lo cual implica un ligero overfit en comparación con la misma.
+- _Red neuronal compleja con capas de abandono:_ 4 capas intermedias con 40 neuronas cada una y una capa de dropout de 0.1 y dos capas de dropout de 0.02
+    - Error: 119325.7344 dólares (**bajo**)
+    - Sesgo: 4.765e10 (**medio**)
+    - Varianza: 2.137e9 (**alto**)
+    - A pesar de que el error es menor, el sesgo y la varianza son mucho mayores que la red neuronal simple lo cual implica que este es un peor modelo en general.
 
 ---
 
 ## **Validación de resultados**
 
-Comparando todos los modelos, podemos concluir que el modelo que mejor se ajusta es el de red neuronal compleja con capas dropout, ya que el error absoluto medio, el sesgo y la varianza son los más bajos.
+Comparando todos los modelos, podemos concluir que el modelo que mejor se ajusta es el de red neuronal simple, ya que mantiene un error absoluto, una varianza y un sesgo relativamente bajos, sin caer en underfitting u overfitting.
 
 ---
 
 ## **Diagnóstico y explicación de los resultados**
 
-El modelo de una red neuronal compleja con capas dropout, fue el que mejor resultado dio. Un error de 12, 418 de dólares; un grado de bias de 246 y un grado de bias de 318. A pesar de que estos valores en sí mismo representan un underfitting, podemos observar en la gráfica que se tiene un buen modelo. Probablemente este podría ser mejorado incrementando el número de épocas y disminuyendo el learning rate (esto no fue posible aplicar en el modelo debido a la poca RAM de mi computadora portátil).
+El modelo de una red neuronal simple fue el que mejor resultado dio: un error de 120,848 dólares, un sesgo de 3.9e10 y una varianza de 7.4e8. A pesar de que estos valores pueden parecer altos (influenciado en gran medida por el rango de valores en los precios), el resultado es bueno y podemos observar en la gráfica que se tiene un buen modelo. En el futuro, mejoras posibles pueden encontrarse en el número de épocas de entrenamiento, ajuste de hiperparámetros diferentes (como tasa de aprendizaje o porcentaje de validación) y  modificaciones en las capas utilizadas para las redes.
 
 ![image](https://user-images.githubusercontent.com/67491368/190276253-887bafcc-06db-40bc-8578-140a3f913417.png)
 
