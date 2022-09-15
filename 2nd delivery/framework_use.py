@@ -419,7 +419,7 @@ dropout_large_nn_model = model_definition_compilation_fit(
 
 # ---
 # ## **Validation of results**
-# Comparing all the models, we can conclude that the model that fits the best is the dropout large neural network since the mean absolute error, the bias and the variance are the lowest.
+# Comparing all the models, we can conclude that the model that fits the best is the simple neural network since the mean absolute error, the bias and the variance are acceptable and it doesn't fall into overfitting or underfitting.
 
 # In[68]:
 
@@ -431,7 +431,7 @@ display(pd.DataFrame(test_results, index=['Mean absolute error [price]']).T)
 # In[75]:
 
 
-test_predictions = dropout_large_nn_model.predict(test_features).flatten()
+test_predictions = nn_model.predict(test_features).flatten()
 
 plt.clf()
 a = plt.axes(aspect='equal')
