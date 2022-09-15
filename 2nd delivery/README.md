@@ -59,14 +59,14 @@ Para ambos modelos se utilizó la optimización de Adam, este es un método de d
 
 #### **_- Linear regression:_**
 
-Para la aplicación de esta regresión lineal (y = mx + b), se produce una salida (output) al usar una sola capa y una neurona. Se utilizó un learning rate de 0.1 y un total de 5 épocas. Esto dio como resultado un error final (en la unidad de dólares) de 53585.85
+Para la aplicación de esta regresión lineal (y = mx + b), se produce una salida (output) al usar una sola capa y una neurona. Se utilizó un learning rate de 0.1 y un total de 5 épocas. Esto dio como resultado un error final (en la unidad de dólares) de 533585.8125, un bias promedio de 42.25e10 y una varianza promedio de 2436.365.
 
 ![image](https://user-images.githubusercontent.com/67491368/190276230-d2cf937c-6f2d-4498-bb2a-a629bfe3f032.png)
 
 
 #### **_- Simple neural network:_**
 
-Para este red neuronal simple, sólo se hizo uso de dos capas intermedias con 64 neuronas cada una; se usó la función de activación Relu, learning rate de 0.1 y 5 épocas. Esto dio como resultado un error final (en la unidad de dólares) de 20682.196.
+Para este red neuronal simple, sólo se hizo uso de dos capas intermedias con 64 neuronas cada una; se usó la función de activación Relu, learning rate de 0.1 y 5 épocas. Esto dio como resultado un error final (en la unidad de dólares) de 120848.7188, un bias promedio de 39.52e9 y una varianza promedio de 74.53e7
 
 ![image](https://user-images.githubusercontent.com/67491368/190276241-15e24b48-a293-4ee1-b68b-f996764704d4.png)
 
@@ -75,7 +75,7 @@ Para este red neuronal simple, sólo se hizo uso de dos capas intermedias con 64
 
 ## **Análisis de rendimiento**
 
-Después de analizar el error y el sesgo y la varianza, se puede concluir que una red neuronal predice mejor la relación entre la variable independiente y las variables dependientes; y esto tiene sentido, ya que esperamos que el rendimiento de una red neuronal sea mejor que un modelo de regresión simple.
+Después de analizar el error, el sesgo y la varianza, se puede concluir que una red neuronal predice mejor la relación entre la variable independiente y las variables dependientes; y esto tiene sentido, ya que esperamos que el rendimiento de una red neuronal sea mejor que un modelo de regresión simple.
 
 ---
 
